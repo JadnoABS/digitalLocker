@@ -1,0 +1,35 @@
+# Controlar uma fechadura usando o navegador.
+
+**incluir gif animado que mostra funcionando.**
+
+## Descrição
+
+## Arquitetura e organização
+
+## Explica como montar o dispositivo físico
+
+## Explica como usar o programa
+
+## Explica como o programa foi feito
+
+```python
+p25 = Pin(25, Pin.OUT)
+motor = PWM(p25, freq=50)
+motor.duty(40)
+```
+Fonte: https://docs.micropython.org/en/latest/esp8266/tutorial/pwm.html#control-a-hobby-servo
+
+
+## Referências
+
+
+## Colaborar usando github (meta)
+
+A maneira indicada pelo mantenedor do github para colaborar com projetos hospedados nele é através de bifurcação e pull request: https://stackoverflow.com/questions/32750228/how-to-contribute-to-someone-elses-repository.
+
+É possível ser colaborador do projeto e fazer pull/push (https://stackoverflow.com/questions/42619669/how-to-make-branch-from-friends-repository), mas isto pode gerar confusão (quando fiz isso com outra pessoa eu a confundi e ela acabou reiniciando o repositório - `git init` - não foi um bom resultado).
+
+Quando procurei essa informação, nas postagens, encontrei um material interessante sobre a organização (interna) do git: https://stackoverflow.com/tags/git/info
+
+Sobre bifurcação: https://docs.github.com/pt/get-started/quickstart/fork-a-repo, https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks.
+
