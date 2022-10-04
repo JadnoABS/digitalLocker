@@ -1,6 +1,6 @@
 # Controlar uma fechadura usando o navegador.
 
-![Quando tiver vídeo da operação com navegador, transferir este para a explicação do servo.](./output.gif)
+![Quando tiver vídeo da operação com navegador, transferir este para a explicação do servo.](./docs/output.gif)
 
 ## Descrição
 
@@ -32,9 +32,22 @@ Notas: É possível fazer a montagem somente com jumpers (sem protoboard) e rece
 
 ## Explica como montar o dispositivo físico
 
-Fazer as conexões listadas, executar `digitalLocker.py` no Node e navegar para o IP indicado pelo Node.
+Fazer as conexões listadas, configurar, transferir e executar `digitalLocker.py` no Node e navegar para o IP indicado pelo Node.
 
 ## Arquitetura e organização
+
+Figura 1 - Feito usando yEd, arquivo-fonte da figura em /docs/Rede.graphml:
+
+![rede](/docs/Rede.png)
+
+O dispositivo (digitalLocker) conecta-se ao ponto de acesso wi-fi como um cliente wi-fi e obtém um endereço IP local. Através do navegador, outros dispositivos podem navegar (fazer requisições HTTP) para o endereço IP e receberão como resposta uma página web contendo dois botões. Clicar nos botões causa o envio de uma nova requisição (HTTP:GET) que, quando recebida pelo digitalLocker, causa o giro do servo motor e o envio da resposta para o navegador.
+
+O dispositivo pode ser visto como a interconexão do motor com o modem wifi (embutido no controlador) e o controlador. A interface entre o programador e o hardware do controlador é feita através de Micropython. O programa `digitalLocker.py` contém os comandos para conectar ao wifi (como cliente), funcionar como um servidor web e controlar o motor. Uma ilustração é apresentada na figura 2.
+
+Figura 2- Feito usando yEd, arquivo-fonte da figura em /docs/layerModel.graphml:
+
+![camadas](/docs/layerModel.png)
+
 
 ## Explica como usar o programa
 
