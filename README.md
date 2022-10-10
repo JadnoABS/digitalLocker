@@ -1,12 +1,15 @@
 # Controlar uma fechadura usando o navegador.
 
-![Quando tiver vídeo da operação com navegador, transferir este para a explicação do servo.](./docs/output.gif)
+![Operando com o navegador, via wifi.](./docs/wifi.gif)
+
 
 ## Descrição
 
-Clicar no botão XXX para abrir, clicar no botão YYY para fechar.
+Na animação, a fechadura foi acessada em 192.168.0.11:3000. Digitar esse endereço (número) na barra de endereço do navegador faz este mostrar a página do digitalLocker.
 
-O NodeMCU conecta-se ao wifi local e funciona como um servidor web. Quando o programa é iniciado, o IP é mostrado. Navegar para <IP> o que mostra a página com dois botões. O programa executado pelo Node é `digitalLocker.py`.
+Clicar no botão OFF para abrir, clicar no botão ON para fechar.
+
+O NodeMCU conecta-se ao wifi local e funciona como um servidor web. Quando o programa é iniciado, o IP é mostrado no REPL ou na IDE que você estiver usando. Navegar para <IP>:3000 o que mostra a página com dois botões. O programa executado pelo Node é `digitalLocker.py`.
 
 ### Lista de Materiais
 
@@ -51,9 +54,11 @@ Figura 2- Feito usando yEd, arquivo-fonte da figura em /docs/layerModel.graphml:
 
 ## Explica como usar o programa
 
-Para executar `digitalLocker.py` no Node, este deve estar carregado com Micropython. Instruções sobre como carregar Micropython neste [link externo](https://github.com/FNakano/CFA/tree/master/programas/Micropython). Depois de carregar, ou transferir o programa ou executá-lo usando, por exemplo WebREPL (instruções neste [link externo]()https://github.com/FNakano/CFA/tree/master/programas/Micropython/webREPL), ou o método que preferir, depois seguir os passos na descrição.
+Para executar `digitalLocker.py` no Node, este deve estar carregado com Micropython. Instruções sobre como carregar Micropython neste [link externo](https://github.com/FNakano/CFA/tree/master/programas/Micropython). Depois de carregar, ou transferir o programa ou executá-lo usando, por exemplo WebREPL (instruções neste [link externo]()https://github.com/FNakano/CFA/tree/master/programas/Micropython/webREPL), ou o método que preferir. No exemplo, uso Thonny e envio `digitalLocker.py` para o Node. No arquivo é definida a função `startServer()`. Desta forma, no REPL, digitar `import digitalLocker` para importar a função e digitar `digitalLocker.startServer()` para iniciar o servidor. Isto é mais cômodo que executar os comandos um por um, seja digitando, seja com copy-paste.
 
 ## Explica como o motor funciona
+
+![Quando tiver vídeo da operação com navegador, transferir este para a explicação do servo.](./docs/output.gif)
 
 O servomotor é um motor em que o eixo gira menos de uma volta e o ângulo de giro do eixo pode ser controlado. O motor específico desta montagem permite ângulos entre zero e 180 graus (especificação técnica: http://www.datasheet-pdf.com/PDF/SG90-Datasheet-TowerPro-791970). Este motor recebe energia pelos fios marrom (GND) e vermelho (VCC). A tensão de alimentação pode ser algo entre 4V e 7.2V. Nesta montagem será 6V. O fio laranja conduz o sinal de controle para o motor.
 
